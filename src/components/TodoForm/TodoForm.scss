@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  input {
+    padding: 6px 10px;
+    box-sizing: border-box;
+    background-color: rgb(243, 243, 243);
+    box-shadow: inset 6px 6px 6px #ccc, inset -6px -6px 6px #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+  }
+}

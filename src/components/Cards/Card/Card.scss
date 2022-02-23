@@ -1,0 +1,56 @@
+.todo-list {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  .card {
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgb(243, 243, 243);
+    box-shadow: 6px 6px 6px #ccc, -6px -6px 6px #fff;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:active {
+      border: 1px solid #ccc;
+      box-shadow: none;
+    }
+  }
+
+  span {
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.2;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+}
+
+.item-enter {
+  opacity: 0;
+  transform: translateX(-150px);
+}
+.item-enter-active {
+  opacity: 1;
+  transition: all 500ms ease-in;
+  transform: translateX(0px);
+}
+.item-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
