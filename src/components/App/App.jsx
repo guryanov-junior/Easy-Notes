@@ -46,17 +46,17 @@ const App = () => {
     updateTodosWithSave(updatedTodos);
   };
 
-  // const updateTodo = (todoId, newValue) => {
-  //   if (!newValue.text || /^\s*$/.test(newValue.text)) {
-  //     return;
-  //   }
+  const updateTodo = (todoId, newValue) => {
+    if (!newValue.text || /^\s*$/.test(newValue.text)) {
+      return;
+    }
 
-  //   updateTodosWithSave(
-  //     todos.map((item) => (item.id === todoId ? newValue : item))
-  //   );
+    updateTodosWithSave(
+      todos.map((item) => (item.id === todoId ? newValue : item))
+    );
 
-  //   setFilteredTodos(newValue);
-  // };
+    // setFilteredTodos(newValue);
+  };
 
   const removeCard = (todoId) => {
     const filteredTodos = todos.filter((todo) => todoId !== todo.id);
@@ -101,7 +101,7 @@ const App = () => {
       ) : (
         <Cards
           todos={todos}
-          // updateTodo={updateTodo}
+          updateTodo={updateTodo}
           removeCard={removeCard}
           toggleTodoComplete={toggleTodoComplete}
         />

@@ -4,12 +4,20 @@ import { Card } from './Card/Card';
 import './Cards.scss';
 
 const Cards = (props) => {
-  const { todos, removeCard, toggleTodoComplete } = props;
+  const { todos, updateTodo, removeCard, toggleTodoComplete } = props;
 
   const [edit, setEdit] = useState({
     id: null,
     value: '',
   });
+
+  const submitUpdate = (value) => {
+    updateTodo(edit.id, value);
+    setEdit({
+      id: null,
+      value: '',
+    });
+  };
 
   if (edit) {
     return <TodoEditForm />;
