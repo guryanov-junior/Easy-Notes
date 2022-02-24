@@ -20,7 +20,7 @@ const Cards = (props) => {
   };
 
   if (edit) {
-    return <TodoEditForm />;
+    return <TodoEditForm edit={edit} onSubmit={submitUpdate} />;
   }
 
   return (
