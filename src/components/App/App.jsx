@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import './App.scss';
-import { Cards } from './components/Cards/Cards';
-import { TodoForm } from './components/TodoForm/TodoForm';
-import { Loader } from './components/UI/Loader/Loader';
+import { Cards } from '../Cards/Cards';
+import { TodoForm } from '../TodoForm/TodoForm';
+import { Loader } from '../UI/Loader/Loader';
 
 const App = () => {
   const [todos, setTodos] = useState(
@@ -10,7 +10,9 @@ const App = () => {
       ? JSON.parse(localStorage.getItem('todos'))
       : []
   );
+
   const [isLoading, setIsLoading] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const inputRef = useRef();
 
@@ -27,7 +29,7 @@ const App = () => {
       completed: false,
     };
     if (inputRef.current.value !== '') {
-      const newTodos = [...todos, newTodo];
+      const newTodos = [newTodo, ...todos];
       updateTodosWithSave(newTodos);
     }
 
@@ -43,6 +45,18 @@ const App = () => {
     });
     updateTodosWithSave(updatedTodos);
   };
+
+  // const updateTodo = (todoId, newValue) => {
+  //   if (!newValue.text || /^\s*$/.test(newValue.text)) {
+  //     return;
+  //   }
+
+  //   updateTodosWithSave(
+  //     todos.map((item) => (item.id === todoId ? newValue : item))
+  //   );
+
+  //   setFilteredTodos(newValue);
+  // };
 
   const removeCard = (todoId) => {
     const filteredTodos = todos.filter((todo) => todoId !== todo.id);
@@ -67,22 +81,27 @@ const App = () => {
     updateTodosWithSave([]);
   };
 
+  const toggleTitleStyle = () => {
+    setIsActive((prev) => !prev);
+  };
+
   return (
     <div className='app'>
-      <h1>TODO List</h1>
-      <hr />
+      <h1 className={isActive ? 'out-title' : 'in-title'}>TODO List</h1>
+
       <TodoForm
         handleSubmit={handleSubmit}
         inputRef={inputRef}
         getPosts={getPosts}
         clearPostList={clearPostList}
       />
-      <hr />
+
       {isLoading ? (
         <Loader />
       ) : (
         <Cards
           todos={todos}
+          // updateTodo={updateTodo}
           removeCard={removeCard}
           toggleTodoComplete={toggleTodoComplete}
         />

@@ -1,31 +1,33 @@
 import React from 'react';
-import { FaTrashAlt } from 'react-icons/fa';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './Card.scss';
+import { TodoIcons } from './TodoIcons/TodoIcons';
 
 const Card = (props) => {
-  const { todos, removeCard, toggleTodoComplete } = props;
+  const { todos, setEdit, removeCard, toggleTodoComplete } = props;
 
   return (
     <TransitionGroup className='todo-list'>
-      {todos.map((todo, index) => (
+      {todos.map((todo) => (
         <CSSTransition
           key={todo.id}
           unmountOnExit
           timeout={500}
           classNames='item'
         >
-          <div className='card' key={todo.id}>
-            <span onClick={() => removeCard(todo.id)}>
-              <FaTrashAlt />
-            </span>
+          <div
+            className={todo.completed ? 'todo-card-inactive' : 'todo-card'}
+            key={todo.id}
+          >
+            <TodoIcons
+              todo={todo}
+              setEdit={setEdit}
+              removeCard={removeCard}
+              toggleTodoComplete={toggleTodoComplete}
+            />
 
-            <div
-              className={todo.completed ? 'completed' : ''}
-              onClick={() => toggleTodoComplete(todo.id)}
-            >
-              <p className='title'>Todo №{index + 1}</p>
-              <p>{todo.title}</p>
+            <div className={todo.completed ? 'completed' : ''}>
+              <div className='todo-text'>{todo.title}</div>
             </div>
           </div>
         </CSSTransition>

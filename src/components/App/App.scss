@@ -1,0 +1,40 @@
+@mixin title {
+  display: inline-block;
+  padding: 10px 25px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-color: rgb(246, 246, 246);
+  transition: all 0.1s ease-out;
+}
+
+.app {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 50px;
+  }
+
+  .out-title {
+    @include title;
+    animation-duration: 0.1s;
+    animation-name: title;
+    box-shadow: 20px 20px 8px #ccc, -8px -8px 12px #fff;
+  }
+
+  @keyframes title {
+    from {
+      box-shadow: none;
+    }
+
+    to {
+      box-shadow: 20px 20px 8px #ccc, -8px -8px 12px #fff;
+    }
+  }
+
+  .in-title {
+    @include title;
+  }
+}
+
+@media screen and (max-width: 860px) {
+}

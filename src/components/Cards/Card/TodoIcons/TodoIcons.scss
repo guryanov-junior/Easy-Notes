@@ -1,0 +1,53 @@
+@mixin icon {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: rgb(246, 246, 246);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 4px 4px 4px #ccc, -4px -4px 4px #fff;
+  transition: all 0.1s ease-in;
+
+  &:active {
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+}
+
+.todo-icons {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  .todo-remove {
+    @include icon;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  .todo-edit {
+    @include icon;
+
+    &:hover {
+      color: rgb(11, 89, 255);
+    }
+  }
+
+  .task-completed {
+    @include icon;
+
+    &:hover {
+      color: rgb(28, 231, 45);
+    }
+
+    &-active {
+      color: rgb(28, 231, 45);
+      @include icon;
+    }
+  }
+}
