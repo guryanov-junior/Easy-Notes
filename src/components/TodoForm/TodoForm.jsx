@@ -4,13 +4,19 @@ import { Input } from '../UI/Input/Input';
 import './TodoForm.scss';
 
 const TodoForm = (props) => {
-  const { handleSubmit, inputRef, getPosts, clearPostList } = props;
+  const { addTodo, searchTodo, inputRef, getPosts, clearPostList } = props;
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <Input label={'Add a todo'} inputRef={inputRef} />
-      <Button type='submit' title={'Add'} />
-      <Button type='button' title={'Get todos from API'} onClick={getPosts} />
+    <form className='form' onSubmit={(e) => addTodo(e)}>
+      <div className='add-note'>
+        <Input
+          label={'Add a note'}
+          inputRef={inputRef}
+          onChange={(e) => searchTodo(e.target.value)}
+        />
+        <Button type='submit' title={'Add'} />
+      </div>
+      <Button type='button' title={'Get notes from API'} onClick={getPosts} />
       <Button type='button' title={'Clear list'} onClick={clearPostList} />
     </form>
   );

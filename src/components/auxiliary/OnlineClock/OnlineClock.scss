@@ -1,0 +1,45 @@
+@import '../../App/App.scss';
+
+.clock {
+  @include title-active;
+}
+
+.clock-inactive {
+  @include title-inactive;
+}
+
+// Media queries
+
+@media screen and (max-width: 991px) {
+  .clock {
+    font-size: 18px;
+  }
+
+  .clock-inactive {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 684px) {
+  .clock {
+    font-size: 14px;
+    padding: 7px 15px !important;
+  }
+
+  .clock-inactive {
+    font-size: 14px;
+    padding: 7px 15px !important;
+  }
+}
+
+@media screen and (max-width: 476px) {
+  .clock {
+    font-size: 16px;
+    padding: 3px 15px !important;
+  }
+
+  .clock-inactive {
+    font-size: 16px;
+    padding: 3px 15px !important;
+  }
+}

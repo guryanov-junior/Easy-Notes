@@ -1,7 +1,14 @@
 .cards {
-  margin: 50px 15px;
+  margin: 50px auto;
+  padding: 0 10px;
 
   h2 {
     margin-top: 200px;
+  }
+}
+
+@media screen and (max-width: 476px) {
+  .cards {
+    margin: 20px auto;
   }
 }

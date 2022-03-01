@@ -1,12 +1,12 @@
 @mixin card {
-  width: 260px;
-  height: 260px;
+  width: 228px;
+  height: 228px;
   padding: 14px;
+
   box-sizing: border-box;
   background-color: rgb(246, 246, 246);
   border: 1px solid transparent;
   border-radius: 10px;
-  cursor: pointer;
   transition: all 0.1s ease-in;
 }
 
@@ -25,6 +25,7 @@
     @include card;
     box-shadow: inset 6px 6px 6px #ccc, inset -6px -6px 6px #fff;
     transition: all 0.1s ease-out;
+    cursor: auto;
   }
 
   .completed {
@@ -33,7 +34,7 @@
   }
 
   .todo-text {
-    margin: 10px 0;
+    margin: 30px 0;
     text-align: left;
     -webkit-line-clamp: 7;
     display: -webkit-box;
@@ -57,4 +58,47 @@
 .item-exit-active {
   opacity: 0;
   transition: opacity 200ms ease-in;
+}
+
+@media screen and (max-width: 684px) {
+  .todo-list {
+    gap: 20px;
+  }
+
+  .todo-card {
+    width: 190px !important;
+    height: 190px !important;
+  }
+
+  .todo-card-inactive {
+    width: 190px !important;
+    height: 190px !important;
+  }
+
+  .todo-text {
+    -webkit-line-clamp: 5 !important;
+  }
+}
+
+@media screen and (max-width: 476px) {
+  .todo-list {
+    justify-content: center;
+  }
+
+  .todo-card {
+    width: 96% !important;
+    height: 82px !important;
+    padding: 5px 15px !important;
+  }
+
+  .todo-card-inactive {
+    width: 96% !important;
+    height: 82px !important;
+    padding: 5px 15px !important;
+  }
+
+  .todo-text {
+    margin: 8px 0 !important;
+    -webkit-line-clamp: 2 !important;
+  }
 }

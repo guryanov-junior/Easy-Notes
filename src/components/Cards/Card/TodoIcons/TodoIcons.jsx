@@ -20,7 +20,7 @@ const TodoIcons = (props) => {
           onClick={() => {
             setEdit({
               id: todo.id,
-              value: todo.text,
+              value: todo.title,
             });
           }}
         />

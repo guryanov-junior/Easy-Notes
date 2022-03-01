@@ -3,6 +3,8 @@ import './App.scss';
 import { Cards } from '../Cards/Cards';
 import { TodoForm } from '../TodoForm/TodoForm';
 import { Loader } from '../UI/Loader/Loader';
+import { OnlineClock } from '../auxiliary/OnlineClock/OnlineClock';
+import { DateToday } from '../auxiliary/DateToday/DateToday';
 
 const App = () => {
   const [todos, setTodos] = useState(
@@ -12,7 +14,8 @@ const App = () => {
   );
 
   const [isLoading, setIsLoading] = useState(false);
-  const [isActive, setIsActive] = useState(false);
+  const [isToggled, setIsToggled] = useState(false);
+  const [filteredTodos, setFilteredTodos] = useState([]);
 
   const inputRef = useRef();
 
@@ -21,7 +24,7 @@ const App = () => {
     localStorage.setItem('todos', JSON.stringify(newTodos));
   };
 
-  const handleSubmit = (e) => {
+  const addTodo = (e) => {
     e.preventDefault();
     const newTodo = {
       id: new Date().getTime(),
@@ -31,6 +34,7 @@ const App = () => {
     if (inputRef.current.value !== '') {
       const newTodos = [newTodo, ...todos];
       updateTodosWithSave(newTodos);
+      setFilteredTodos(newTodos);
     }
 
     inputRef.current.value = '';
@@ -47,20 +51,20 @@ const App = () => {
   };
 
   const updateTodo = (todoId, newValue) => {
-    if (!newValue.text || /^\s*$/.test(newValue.text)) {
+    if (!newValue.title || /^\s*$/.test(newValue.title)) {
       return;
     }
-
     updateTodosWithSave(
       todos.map((item) => (item.id === todoId ? newValue : item))
     );
-
-    // setFilteredTodos(newValue);
+    setFilteredTodos(newValue);
+    inputRef.current.value = '';
   };
 
   const removeCard = (todoId) => {
     const filteredTodos = todos.filter((todo) => todoId !== todo.id);
     updateTodosWithSave(filteredTodos);
+    setFilteredTodos(filteredTodos);
   };
 
   const getPosts = async () => {
@@ -70,6 +74,7 @@ const App = () => {
         .then((response) => response.json())
         .then((json) => {
           updateTodosWithSave([...todos, ...json]);
+          setFilteredTodos([...todos, ...json]);
           setIsLoading(false);
         });
     } catch (error) {
@@ -79,21 +84,36 @@ const App = () => {
 
   const clearPostList = () => {
     updateTodosWithSave([]);
+    setFilteredTodos([]);
   };
 
-  const toggleTitleStyle = () => {
-    setIsActive((prev) => !prev);
+  const toggleTitle = () => {
+    setIsToggled((prev) => (prev = !prev));
+  };
+
+  const searchTodo = (value) => {
+    const filteredList = todos.filter((todo) => {
+      return todo.title.search(value.toLowerCase()) !== -1;
+    });
+    setFilteredTodos(filteredList);
   };
 
   return (
     <div className='app'>
-      <h1 className={isActive ? 'out-title' : 'in-title'}>TODO List</h1>
+      <div className='title-bar'>
+        <DateToday isToggled={isToggled} />
+        <h1 className='title' onClick={toggleTitle}>
+          Easy Notes
+        </h1>
+        <OnlineClock isToggled={isToggled} />
+      </div>
 
       <TodoForm
-        handleSubmit={handleSubmit}
+        addTodo={addTodo}
         inputRef={inputRef}
         getPosts={getPosts}
         clearPostList={clearPostList}
+        searchTodo={searchTodo}
       />
 
       {isLoading ? (
@@ -104,6 +124,7 @@ const App = () => {
           updateTodo={updateTodo}
           removeCard={removeCard}
           toggleTodoComplete={toggleTodoComplete}
+          filteredTodos={filteredTodos}
         />
       )}
     </div>

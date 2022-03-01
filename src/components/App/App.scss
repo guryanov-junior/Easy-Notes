@@ -2,39 +2,90 @@
   display: inline-block;
   padding: 10px 25px;
   box-sizing: border-box;
-  border-radius: 20px;
+  border-radius: 30px;
+  border: 1px solid transparent;
   background-color: rgb(246, 246, 246);
-  transition: all 0.1s ease-out;
+  box-shadow: 10px 10px 8px #ccc, -8px -8px 8px #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+
+  &:active {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    transition: all 0.2s ease-out;
+  }
+}
+
+@mixin title-active {
+  @include title;
+  font-size: 26px;
+}
+
+@mixin title-inactive {
+  @include title-active;
+  cursor: auto;
+  box-shadow: none;
+  color: rgb(246, 246, 246);
+  &:active {
+    box-shadow: none;
+    border: 1px solid transparent;
+  }
 }
 
 .app {
   text-align: center;
+  max-width: 1280px;
+  margin: 0 auto;
 
-  h1 {
-    margin-bottom: 50px;
-  }
+  .title-bar {
+    margin: 0 10px 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  .out-title {
-    @include title;
-    animation-duration: 0.1s;
-    animation-name: title;
-    box-shadow: 20px 20px 8px #ccc, -8px -8px 12px #fff;
-  }
-
-  @keyframes title {
-    from {
-      box-shadow: none;
+    .title {
+      @include title;
+      margin-left: -120px;
     }
-
-    to {
-      box-shadow: 20px 20px 8px #ccc, -8px -8px 12px #fff;
-    }
-  }
-
-  .in-title {
-    @include title;
   }
 }
 
-@media screen and (max-width: 860px) {
+// Media queries
+
+@media screen and (max-width: 991px) {
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 684px) {
+  h1 {
+    font-size: 18px;
+    padding: 7px 15px !important;
+  }
+
+  .title {
+    margin-left: -80px !important;
+  }
+}
+
+@media screen and (max-width: 476px) {
+  h1 {
+    font-size: 20px;
+    padding: 5px 20px !important;
+  }
+
+  .title-bar {
+    margin: 10px 10px 15px 10px !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px !important;
+  }
+
+  .title {
+    margin-left: 0 !important;
+  }
 }

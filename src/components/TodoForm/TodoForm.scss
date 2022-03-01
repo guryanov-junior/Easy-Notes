@@ -1,7 +1,8 @@
-form {
+.form {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 16px;
 
   input {
@@ -13,5 +14,23 @@ form {
     border-radius: 10px;
     cursor: pointer;
     outline: none;
+  }
+
+  .add-note {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+// Media queries
+
+@media screen and (max-width: 476px) {
+  .form {
+    gap: 15px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
