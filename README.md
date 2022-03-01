@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+<h1 align="center">Easy Notes</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+</br>
 
-## Available Scripts
+<img src="./readme_assets/main.png">
 
-In the project directory, you can run:
+</br>
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### This app is a note manager in responsive neumorphic design
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+</br>
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### <p align="center"><a  href="https://nifty-bhabha-2553a0.netlify.app/">Live Demo</a></p>
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+</br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- #### Create new task or note
 
-### `npm run eject`
+<img src="./readme_assets/1.png">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- #### View and edit your tasks
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="./readme_assets/2.png">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img src="./readme_assets/3.png">
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- #### Remove notes
 
-## Learn More
+<img src="./readme_assets/4.png">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- #### Make your tasks completed
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="./readme_assets/5.png">
 
-### Code Splitting
+- #### Find notes in a list just by entering text in input
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img src="./readme_assets/6.png">
 
-### Analyzing the Bundle Size
+- #### Clear notes list
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img src="./readme_assets/7.png">
 
-### Making a Progressive Web App
+- #### Also you can load the notes from API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img src="./readme_assets/8.png">
 
-### Advanced Configuration
+- #### BONUS! You can see hidden current time and date by clicking on the logo!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<img src="./readme_assets/9.png">
 
-### Deployment
+<img src="./readme_assets/10.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+</br>
 
-### `npm run build` fails to minify
+## Tech
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Created with **React** and using **SCSS**
+
+</br>
+
+## Setup and Launch
+
+```
+$ git clone https://github.com/guryanov-junior/Easy-Notes.git
+$ npm install
+$ npm start
+```
+
+</br>
