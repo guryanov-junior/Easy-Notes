@@ -2,7 +2,7 @@
 
 </br>
 
-<img src="./readme_assets/main.png">
+<img src="./readme_assets/main.gif">
 
 </br>
 
