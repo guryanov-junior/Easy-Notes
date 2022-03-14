@@ -71,21 +71,8 @@
   }
 }
 
-@media screen and (max-width: 476px) {
-  h1 {
-    font-size: 20px;
-    padding: 5px 20px !important;
-  }
-
-  .title-bar {
-    margin: 10px 10px 15px 10px !important;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 5px !important;
-  }
-
-  .title {
-    margin-left: 0 !important;
+@media screen and (max-width: 480px) {
+  .common {
+    display: none;
   }
 }

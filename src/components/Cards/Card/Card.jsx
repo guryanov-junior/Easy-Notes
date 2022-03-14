@@ -4,7 +4,7 @@ import './Card.scss';
 import { TodoIcons } from './TodoIcons/TodoIcons';
 
 const Card = (props) => {
-  const { todos, setEdit, removeCard, toggleTodoComplete } = props;
+  const { todos, setEdit } = props;
 
   return (
     <TransitionGroup className='todo-list'>
@@ -19,14 +19,11 @@ const Card = (props) => {
             className={todo.completed ? 'todo-card-inactive' : 'todo-card'}
             key={todo.id}
           >
-            <TodoIcons
-              todo={todo}
-              setEdit={setEdit}
-              removeCard={removeCard}
-              toggleTodoComplete={toggleTodoComplete}
-            />
+            <div className='todo-icons'>
+              <TodoIcons todo={todo} setEdit={setEdit} />
+            </div>
 
-            <div className={todo.completed ? 'completed' : ''}>
+            <div className={todo.completed ? 'completed' : 'todo'}>
               <div className='todo-text'>{todo.title}</div>
             </div>
           </div>

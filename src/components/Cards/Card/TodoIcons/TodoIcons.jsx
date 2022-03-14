@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiOutlineDelete, AiTwotoneEdit } from 'react-icons/ai';
 import { FaCheck } from 'react-icons/fa';
+import { CardsContext } from '../../../../CardsContext';
 import './TodoIcons.scss';
 
 const TodoIcons = (props) => {
-  const { todo, setEdit, removeCard, toggleTodoComplete } = props;
+  const { todo, setEdit } = props;
+  const { removeCard, toggleTodoComplete } = useContext(CardsContext);
 
   return (
     <div className='todo-icons'>

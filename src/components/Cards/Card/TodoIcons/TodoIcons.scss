@@ -56,34 +56,27 @@
 
 // Media queries
 
-@media screen and (max-width: 476px) {
+@media screen and (max-width: 480px) {
   .todo-icons {
     font-size: 18px;
-    gap: 25px;
-    margin-top: 5px;
+    gap: 20px;
+    margin-bottom: 5px;
   }
 
-  .todo-remove {
-    width: 24px !important;
-    height: 24px !important;
-    padding: 2px !important;
+  @mixin icons {
+    width: 28px !important;
+    height: 28px !important;
   }
 
-  .todo-edit {
-    width: 24px !important;
-    height: 24px !important;
-    padding: 2px !important;
+  .todo-remove,
+  .todo-edit,
+  .task-completed {
+    @include icons;
   }
 
   .task-completed {
-    width: 24px !important;
-    height: 24px !important;
-    padding: 2px !important;
-
     &-active {
-      width: 24px !important;
-      height: 24px !important;
-      padding: 2px !important;
+      @include icons;
     }
   }
 }

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { CardsContext } from '../../CardsContext';
 import { TodoEditForm } from '../TodoEditForm/TodoEditForm';
 import { Card } from './Card/Card';
 import './Cards.scss';
 
 const Cards = (props) => {
-  const { todos, filteredTodos, updateTodo, removeCard, toggleTodoComplete } =
-    props;
+  const { todos, filteredTodos, updateTodo } = useContext(CardsContext);
 
   const [edit, setEdit] = useState({
     id: null,
@@ -26,21 +26,10 @@ const Cards = (props) => {
 
   return (
     <div className='cards'>
-      {filteredTodos.length > 0 ? (
-        <Card
-          todos={filteredTodos}
-          setEdit={setEdit}
-          removeCard={removeCard}
-          toggleTodoComplete={toggleTodoComplete}
-        />
-      ) : (
-        <Card
-          todos={todos}
-          setEdit={setEdit}
-          removeCard={removeCard}
-          toggleTodoComplete={toggleTodoComplete}
-        />
-      )}
+      <Card
+        todos={filteredTodos.length > 0 ? filteredTodos : todos}
+        setEdit={setEdit}
+      />
     </div>
   );
 };

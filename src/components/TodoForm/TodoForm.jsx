@@ -16,7 +16,10 @@ const TodoForm = (props) => {
         />
         <Button type='submit' title={'Add'} />
       </div>
-      <Button type='button' title={'Get notes from API'} onClick={getPosts} />
+      <div className='api-button'>
+        <Button type='button' title={'Get notes from API'} onClick={getPosts} />
+      </div>
+
       <Button type='button' title={'Clear list'} onClick={clearPostList} />
     </form>
   );

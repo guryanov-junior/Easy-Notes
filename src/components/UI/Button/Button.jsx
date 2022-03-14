@@ -1,11 +1,12 @@
 import React from 'react';
-import './Button.scss';
+import styles from './Button.module.scss';
 
 const Button = (props) => {
   const { title, onClick } = props;
+  const cls = [styles.Button];
 
   return (
-    <button className='button' onClick={onClick}>
+    <button className={cls.join(' ')} onClick={onClick}>
       {title}
     </button>
   );

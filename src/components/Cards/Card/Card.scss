@@ -80,25 +80,33 @@
   }
 }
 
-@media screen and (max-width: 476px) {
+@media screen and (max-width: 480px) {
   .todo-list {
     justify-content: center;
   }
 
-  .todo-card {
-    width: 96% !important;
-    height: 82px !important;
-    padding: 5px 15px !important;
+  .todo-icons {
+    order: 1;
   }
 
+  .todo {
+    order: 0;
+  }
+
+  .todo-card,
   .todo-card-inactive {
-    width: 96% !important;
-    height: 82px !important;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    width: 90% !important;
+    height: 84px !important;
     padding: 5px 15px !important;
   }
 
   .todo-text {
-    margin: 8px 0 !important;
+    margin: 0 0 5px 0 !important;
+    font-size: 16px;
     -webkit-line-clamp: 2 !important;
   }
 }

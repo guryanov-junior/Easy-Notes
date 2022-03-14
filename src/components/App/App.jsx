@@ -5,6 +5,7 @@ import { TodoForm } from '../TodoForm/TodoForm';
 import { Loader } from '../UI/Loader/Loader';
 import { OnlineClock } from '../auxiliary/OnlineClock/OnlineClock';
 import { DateToday } from '../auxiliary/DateToday/DateToday';
+import { CardsContext } from '../../CardsContext';
 
 const App = () => {
   const [todos, setTodos] = useState(
@@ -100,12 +101,14 @@ const App = () => {
 
   return (
     <div className='app'>
-      <div className='title-bar'>
-        <DateToday isToggled={isToggled} />
-        <h1 className='title' onClick={toggleTitle}>
-          Easy Notes
-        </h1>
-        <OnlineClock isToggled={isToggled} />
+      <div className='common'>
+        <div className='title-bar'>
+          <DateToday isToggled={isToggled} />
+          <h1 className='title' onClick={toggleTitle}>
+            Easy Notes
+          </h1>
+          <OnlineClock isToggled={isToggled} />
+        </div>
       </div>
 
       <TodoForm
@@ -119,13 +122,17 @@ const App = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <Cards
-          todos={todos}
-          updateTodo={updateTodo}
-          removeCard={removeCard}
-          toggleTodoComplete={toggleTodoComplete}
-          filteredTodos={filteredTodos}
-        />
+        <CardsContext.Provider
+          value={{
+            todos,
+            filteredTodos,
+            updateTodo,
+            removeCard,
+            toggleTodoComplete,
+          }}
+        >
+          <Cards />
+        </CardsContext.Provider>
       )}
     </div>
   );

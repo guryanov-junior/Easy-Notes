@@ -5,17 +5,6 @@
   flex-wrap: wrap;
   gap: 16px;
 
-  input {
-    padding: 6px 10px;
-    box-sizing: border-box;
-    background-color: rgb(243, 243, 243);
-    box-shadow: inset 6px 6px 6px #ccc, inset -6px -6px 6px #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    outline: none;
-  }
-
   .add-note {
     display: flex;
     align-items: center;
@@ -25,12 +14,15 @@
 
 // Media queries
 
-@media screen and (max-width: 476px) {
+@media screen and (max-width: 480px) {
   .form {
     gap: 15px;
-    border-top: 1px solid #ccc;
+
     border-bottom: 1px solid #ccc;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0;
+  }
+
+  .api-button {
+    display: none;
   }
 }
